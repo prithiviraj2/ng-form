@@ -1,0 +1,20 @@
+<nav class="navbar navbar-light bg-primary">
+    <div class="container-fluid">
+        <h6 class="navbar-brand text-light">Student Registration Table</h6>
+        <div class="d-flex">
+            <a class="btn  btn-outline-warning  link" routerLink="/home">Add Student</a>
+        </div>
+    </div>
+</nav>
+<p>this is table page</p>
+
+<div>
+    <form [formGroup]="tableForm" (ngSubmit)="submit()">
+        <input placeholder="name" [(ngModel)]="obj.name" formControlName="name" type="text"/>
+        <input placeholder="age" [(ngModel)]="obj.age" formControlName="age"  type="number"/>
+        <button type="submit">save</button>
+    </form>
+
+    Name:{{obj.name}}
+    Age:{{obj.age}}
+</div>

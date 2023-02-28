@@ -1,0 +1,41 @@
+<div class="container mt-5 bg-light">
+  <div class=" mx-auto" style="width: 50%;">
+    <form [formGroup]="formpage" (ngSubmit)="onsubmit()">
+      <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Name</label>
+        <input type="text" class="form-control" formControlName="name">
+      </div>
+      <div class="mb-3">
+        <select class="form-select" formControlName="status">
+          <option selected>Open this select menu</option>
+          <option *ngFor="let list of status" [value]="list">{{list}}</option>
+        </select>
+      </div>
+      <div class="mb-3">
+        <input type="checkbox" (change)="checkpresent($event)" formControlName="present"> present
+      </div>
+      <div class="mb-3">
+        <button type="submit" class="btn btn-primary">submit</button>
+      </div>
+    </form>
+  </div>
+</div>
+<table class="table table-bordered" style="width:100%">
+  <thead>
+    <tr>
+      <th>S. No</th>
+      <th>Name</th>
+      <th>status</th>
+      <th>present</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let list of product;let i = index">
+      <td>{{i+1}}</td>
+      <td>{{list.name}}</td>
+      <td>{{list.status}}</td>
+      <td><input type="checkbox" [ngModel]="list.present == '1' ? true : list.present == '0' ? false : null" disabled>
+      </td>
+    </tr>
+  </tbody>
+</table>
